@@ -12,16 +12,30 @@
 
     <title>React App</title>
   </head>
-  <script>//การสร้าง Class และการสืบทอด new class
-    class Car {
-      constructor(name) {
-        this.brand = name;
-      }
+  <script>
+  //สืบทอดเมธอดจากคลาส "Car":
+  class Car {
+    constructor(name) {
+      this.brand = name;
     }
 
-    mycar = new Car("Ford");
+    present() {
+      return 'I have a ' + this.brand;
+    }
+  }
 
-    document.write(mycar.brand);
+  class Model extends Car {
+    constructor(name, mod) {
+      super(name);
+      this.model = mod;
+    }
+    show() {
+      return this.present() + ', it is a ' + this.model
+    }
+  }
+
+  mycar = new Model("Ford", "Mustang");
+  document.write(mycar.show());
   </script>
 
   <body>
