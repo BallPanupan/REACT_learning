@@ -36,6 +36,16 @@
 
   mycar = new Model("Ford", "Mustang");
   document.write(mycar.show());
+
+  hello = (val) => "Hello " + val;
+  document.getElementById("demo").innerHTML = hello("World");
+
+  </script>
+
+  <p id="demo"></p> //Arrow Functions Return Value by Default:
+  <script>
+    hello = (val) => "Hello " + val;
+    document.getElementById("demo").innerHTML = hello("World");
   </script>
 
   <body>
