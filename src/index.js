@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Car_1 from './App.js'; //นำเข้า Class car จาก App.js
+import Carcss from './App.js'
 
 class Car2 extends React.Component {
   render() {
@@ -46,15 +46,63 @@ class CarState extends React.Component {
           from {this.state.year}.
         </p>
 
-        //เมื่อกดปุ่มจะสั้ง function changeColor ทำงาน
         <button type="button" onClick={this.changeColor}>Change color</button>
       </div>
     );
   }
 }
 
+class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      age: null,
+      errormessage: ''
+    };
+  }
+  myChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err = '';
+    if (nam === "age") {
+      if (val !="" && !Number(val)) {
+        err = <strong>Your age must be a number</strong>;
+      }
+    }
+
+    this.setState({errormessage: err});
+    this.setState({[nam]: val});
+  }
+  render() {
+    return (
+      <form>
+        <h1>Hello {this.state.username} {this.state.age}</h1>
+        <p>Enter your name:</p>
+        <input type='text' name='username' onChange={this.myChangeHandler}/>
+        <p>Enter your age:</p>
+        <input type='text' name='age' onChange={this.myChangeHandler} />
+        {this.state.errormessage}
+      </form>
+    );
+  }
+}
+
+class MyHeader extends React.Component {
+  render() {
+    return (
+      <div>
+      <h1 style={{backgroundColor: "lightblue"}}>Hello Style!</h1>
+      <p>Add a little style!.</p>
+      </div>
+    );
+  }
+}
+
 //ส่ง render ไปยัง ID = root
-ReactDOM.render(<Car_1/>, document.getElementById('Car_1'));
 ReactDOM.render(myelement, document.getElementById('Car'));
 ReactDOM.render(<Garage />, document.getElementById('root'));
 ReactDOM.render(<CarState />, document.getElementById('CarState'));
+ReactDOM.render(<MyForm />, document.getElementById('MyForm'));
+ReactDOM.render(<MyHeader />, document.getElementById('root'));
+ReactDOM.render(<Carcss />, document.getElementById('Carcss'));

@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styles from './mystyle.module.css';
 
-class Car_1 extends React.Component {
+class Carcss extends React.Component {
   render() {
-    return <h2>Hi, I am a Car!</h2>;
+    return <h1 className={styles.bigblue}>Hello Car!</h1>;
   }
 }
 
-export default Car_1;
+export default Carcss;
